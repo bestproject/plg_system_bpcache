@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.1" type="plugin" group="system" method="upgrade">
+	<name>plg_system_bpcache</name>
+	<author>Artur Stępień</author>
+	<creationDate>October 2016</creationDate>
+	<copyright>Copyright (C) 2005 - 2016 Open Source Matters. Copyright (C) 2016 Best Project. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>admin@joomla.org</authorEmail>
+	<authorUrl>www.joomla.org</authorUrl>
+	<version>1.0.0</version>
+    
+	<description>PLG_SYSTEM_BPCACHE_XML_DESCRIPTION</description>
+    
+	<files>
+		<filename plugin="bpcache">bpcache.php</filename>
+	</files>
+    
+	<languages>
+		<language tag="en-GB">en-GB.plg_system_bpcache.ini</language>
+		<language tag="en-GB">en-GB.plg_system_bpcache.sys.ini</language>
+		<language tag="pl-PL">pl-PL.plg_system_bpcache.ini</language>
+		<language tag="pl-PL">pl-PL.plg_system_bpcache.sys.ini</language>
+	</languages>
+    
+    <updateservers>
+		<server type="extension" priority="5" name="BP Cache">https://raw.githubusercontent.com/bestproject/plg_system_bpcache/updates/server.xml</server>
+	</updateservers>
+    
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+					name="browsercache"
+					type="radio"
+					label="PLG_SYSTEM_BPCACHE_FIELD_BROWSERCACHE_LABEL"
+					description="PLG_SYSTEM_BPCACHE_FIELD_BROWSERCACHE_DESC"
+					class="btn-group btn-group-yesno"
+					default="0"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+
+				<field
+					name="browsercache_time"
+					type="number" min="0" step="1" filter="INT"
+					label="PLG_SYSTEM_BPCACHE_FIELD_BROWSERCACHE_TIME_LABEL"
+					description="PLG_SYSTEM_BPCACHE_FIELD_BROWSERCACHE_TIME_DESC"
+					default="3"
+                    showon="browsercache:1"
+				/>
+                
+				<field
+					name="exclude_menu_items"
+					type="menuitem"
+					label="PLG_SYSTEM_BPCACHE_FIELD_EXCLUDE_MENU_ITEMS_LABEL"
+					description="PLG_SYSTEM_BPCACHE_FIELD_EXCLUDE_MENU_ITEMS_DESC"
+					default=""
+					multiple="multiple"
+				/>
+
+			</fieldset>
+			<fieldset name="advanced">
+				<field
+					name="exclude"
+					type="textarea"
+					label="PLG_SYSTEM_BPCACHE_FIELD_EXCLUDE_LABEL"
+					description="PLG_SYSTEM_BPCACHE_FIELD_EXCLUDE_DESC"
+					class="input-xxlarge"
+					rows="15"
+					filter="raw"
+					default=""
+				/>
+
+			</fieldset>
+		</fields>
+	</config>
+</extension>
